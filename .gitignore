@@ -1,0 +1,13 @@
+/elpa/
+/eln-cache/
+/auto-save-list/
+
+/\.cache/
+
+/projectile-bookmarks.eld
+/projectile.cache
+/custom.el
+
+*~
+\#*
+

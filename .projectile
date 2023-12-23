@@ -1,0 +1,8 @@
+- elpa/
+- .*
+- custom.el
+- external/
+- ido.*
+- network-security.data
+- projectile*
+- eshell/
