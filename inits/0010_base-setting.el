@@ -14,3 +14,9 @@
 (progn ;; `설정::Y_혹은_N으로_대답'
   (setq read-answer-short t)
   (setq use-short-answers t))
+
+
+(progn ;; `설정::인덴트'
+  (setq-default indent-tabs-mode nil)
+  (setq tab-width 4))
+

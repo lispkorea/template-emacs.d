@@ -1,4 +1,4 @@
-;; 0011_macos.el
+;; file: 0011_os-macos.el
 
 (progn ;; `설정::macOs'
   ;;
