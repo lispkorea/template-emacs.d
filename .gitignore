@@ -6,8 +6,10 @@
 
 /projectile-bookmarks.eld
 /projectile.cache
+/projects
 /custom.el
 
 *~
 \#*
 
+.DS_Store
