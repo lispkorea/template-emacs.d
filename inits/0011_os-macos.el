@@ -5,7 +5,7 @@
   ;; ns : NeXTSTEP. Darwin이전에 사용되던 OS
   ;; darwin: Darwin (kernel)로 macOs의 기반이되는 코어.
   ;; darwin/ns/mac 이라 치면 보통 macOs구나 라고 생각하면 편하다.
-  ;; mac-function-modifier => alias ns-function-modifier 
+  ;; mac-function-modifier => alias ns-function-modifier
   ;;
   ;; ref: https://www.gnu.org/software/emacs/manual/html_node/emacs/Mac-_002f-GNUstep-Customization.html
   ;;

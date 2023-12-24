@@ -10,17 +10,19 @@
 (defconst MODE_OFF -1)
 
 (defmacro -> (&rest body)
+  ;; thread-first
   (let ((result (pop body)))
     (dolist (form body result)
       (setq result
-	    (append (list (car form) result)
+            (append (list (car form) result)
                     (cdr form))))))
 
 (defmacro ->> (&rest body)
+  ;; thread-last
   (let ((result (pop body)))
     (dolist (form body result)
       (setq result
-	    (append form (list result))))))
+            (append form (list result))))))
 
 (defmacro comment (&rest body)
   nil)

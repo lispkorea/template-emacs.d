@@ -15,13 +15,13 @@
 
 
 (use-package package
-  ;; 
+  ;;
   ;; ref: https://github.com/emacs-mirror/emacs/blob/master/lisp/emacs-lisp/package.el
   ;; ref: https://www.gnu.org/software/emacs/manual/html_node/emacs/Packages.html
-  ;; 
+  ;;
   ;; elpa(`E`macs `L`isp `P`ackage `A`rchive)
   ;; melpa(`M`ilkypostman `E`macs `L`isp `P`ackage `A`rchive)
-  ;; 
+  ;;
   ;; elpa(gnu): https://elpa.gnu.org/
   ;; elpa(nognu): https://elpa.nongnu.org/
   ;; melpa: http://melpa.org/

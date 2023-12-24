@@ -9,9 +9,20 @@
   ;; ref: https://www.gnu.org/software/emacs/manual/html_node/emacs/Line-Truncation.html
   ;; `C-x x t` : (toggle-truncate-lines)
   (setq-default truncate-lines t)
-  (setq-default indicate-empty-lines +1)
-  (display-line-numbers-mode +1)
+  (setq-default indicate-empty-lines t)
+  (global-display-line-numbers-mode +1)
   (global-hl-line-mode +1))
+
+(use-package whitespace
+  ;; ref: https://www.emacswiki.org/emacs/WhiteSpace
+  :config
+  (setq whitespace-style
+        '(face
+          trailing
+          tabs
+          tab-mark
+          ))
+  (global-whitespace-mode +1))
 
 (progn ;; `비쥬얼::단순모드_On/Off'
   ;; 켜기: 양수     ; +1로 통일
