@@ -10,3 +10,13 @@
   (add-hook 'prog-mode-hook #'electric-pair-local-mode))
 
 
+(use-package apheleia
+  :ensure t
+  :demand
+  :config
+  (add-hook 'clojure-mode-hook #'apheleia-mode)
+  (add-hook 'emacs-lisp-mode-hook #'apheleia-mode)
+
+  (setf (alist-get 'cljstyle     apheleia-formatters) '("cljstyle" "pipe"))
+  (setf (alist-get 'clojure-mode apheleia-mode-alist) 'cljstyle)
+  )

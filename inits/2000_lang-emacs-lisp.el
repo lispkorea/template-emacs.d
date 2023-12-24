@@ -24,3 +24,8 @@
 	    #'eldoc-mode)
   (add-hook 'eval-expression-minibuffer-setup-hook
 	    #'eldoc-mode))
+
+;; (use-package eldoc-box
+;;   :ensure t
+;;   :config
+;;   (add-hook 'emacs-lisp-mode-hook #'eldoc-box-hover-at-point-mode))
