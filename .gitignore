@@ -4,6 +4,7 @@
 
 /\.cache/
 
+.projectile
 /projectile-bookmarks.eld
 /projectile.cache
 /projects
@@ -14,3 +15,10 @@
 
 .DS_Store
 /racket-mode/
+
+/eshell/
+/elisp-autofmt-cache/
+/amx-items
+/ido.last
+/.mc-lists.el
+/transient/

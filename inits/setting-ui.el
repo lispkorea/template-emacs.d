@@ -1,4 +1,4 @@
-;; file: 1000_ui-visual.el
+;; file: setting-ui.el
 
 (progn ;; `비쥬얼::시작화면'
   ;; ref: https://github.com/emacs-mirror/emacs/blob/master/lisp/startup.el
@@ -10,8 +10,27 @@
   ;; `C-x x t` : (toggle-truncate-lines)
   (setq-default truncate-lines t)
   (setq-default indicate-empty-lines t)
-  (global-display-line-numbers-mode +1)
+  (global-display-line-numbers-mode -1)
+  (add-hook 'prog-mode-hook #'display-line-numbers-mode)
   (global-hl-line-mode +1))
+
+(use-package pulsar
+  ;; `비쥬얼::라인보여주기'
+  ;; ref: https://github.com/protesilaos/pulsar
+  :ensure t
+  :config
+  ;; pulse on change
+  (setq pulsar-pulse-on-window-change t)
+  (setq pulsar-pulse t)
+
+  ;; configure
+  (setq pulsar-delay 0.055)
+  (setq pulsar-iterations 10)
+  (setq pulsar-face 'pulsar-magenta)
+  (setq pulsar-highlight-face 'pulsar-yellow)
+
+  ;; enable globally
+  (pulsar-global-mode 1))
 
 (use-package whitespace
   ;; ref: https://www.emacswiki.org/emacs/WhiteSpace
@@ -48,33 +67,6 @@
            '(80 . 50)
          '(100 . 100)))))
   (global-set-key (kbd "C-c t") 'toggle-transparency))
-
-(progn ;; `비쥬얼::폰트_all-the-icons'
-  ;; ref: https://github.com/domtronn/all-the-icons.el
-  (use-package all-the-icons
-    :ensure t
-    :if (or (display-graphic-p)
-	    (daemonp))
-    :config
-    ;; ref: https://github.com/domtronn/all-the-icons.el/issues/120#issuecomment-565438080
-    (defun aorst/font-installed-p (font-name)
-      "Check if font with FONT-NAME is available."
-      (if (find-font (font-spec :name font-name))
-	  t
-	nil))
-    (when (and (not (aorst/font-installed-p "all-the-icons"))
-               (window-system))
-      (all-the-icons-install-fonts t)))
-  (use-package all-the-icons-dired
-    ;; https://github.com/jtbm37/all-the-icons-dired
-    :ensure t
-    :after (all-the-icons dired)
-    :hook (dired-mode . all-the-icons-dired-mode))
-  (use-package all-the-icons-ibuffer
-    ;; https://github.com/seagle0128/all-the-icons-ibuffer
-    :ensure t
-    :after (all-the-icons ibuffer)
-    :hook (ibuffer-mode . all-the-icons-ibuffer-mode)))
 
 (use-package paren
   ;; `비쥬얼::하이라이트_괄호범위'
@@ -121,34 +113,29 @@
   :config
   (global-hl-todo-mode t))
 
-(use-package smooth-scrolling
-  ;; ref: https://github.com/aspiers/smooth-scrolling
-  :ensure t
-  :config
-  (smooth-scrolling-mode +1))
-
-(use-package doom-modeline
-  ;; ref: https://github.com/seagle0128/doom-modeline
-  :ensure t
-  :config
-  ;; (setq doom-modeline-minor-modes t)
-  (setq doom-modeline-project-detection 'projectile)
-  (setq doom-modeline-position-column-line-format '("%l"))
-  (setq doom-modeline-total-line-number t)
-  (setq doom-modeline-buffer-file-name-style 'relative-to-project)
-  (add-hook 'after-init-hook #'doom-modeline-mode))
-
-(use-package doom-themes
-  ;; ref: https://github.com/doomemacs/themes
-  ;; themelist: https://github.com/doomemacs/themes#theme-list
-  :ensure t
-  :config
-  (doom-themes-visual-bell-config)
-  (load-theme 'doom-tomorrow-night t))
-
+;; (use-package smooth-scrolling
+;;   ;; ref: https://github.com/aspiers/smooth-scrolling
+;;   :ensure t
+;;   :config
+;;   (smooth-scrolling-mode +1))
 
 (use-package solaire-mode
   ;; ref: https://github.com/hlissner/emacs-solaire-mode
   :ensure t
   :config
   (solaire-global-mode +1))
+
+
+(use-package centaur-tabs
+  ;; `탭'
+  ;; ref: https://github.com/ema2159/centaur-tabs
+  :ensure t
+  :bind
+  ("C-<tab>" . centaur-tabs-forward)
+  :init
+  (setq centaur-tabs-set-icons t)
+  (setq centaur-tabs-style "alternate")
+  (setq centaur-tabs-cycle-scope 'tabs)
+  (setq centaur-tabs-gray-out-icons 'buffer)
+  (setq centaur-tabs-set-bar 'under)
+  (centaur-tabs-mode +1))

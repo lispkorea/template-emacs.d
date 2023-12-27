@@ -31,3 +31,5 @@
 
 (setq fast-but-imprecise-scrolling t)
 (setq inhibit-compacting-font-caches t)
+(setq inhibit-startup-message t)
+(setq inhibit-startup-echo-area-message t)

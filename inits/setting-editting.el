@@ -1,4 +1,4 @@
-;; file: 1002_editting.el
+;; file: setting-editting.el
 
 
 (use-package electric-pair-mode
@@ -11,6 +11,8 @@
 
 
 (use-package apheleia
+  ;; ref: https://github.com/radian-software/apheleia
+  ;; Run code formatter on buffer contents without moving point, using RCS patches and dynamic programming
   :ensure t
   :demand
   :config
@@ -20,3 +22,17 @@
   (setf (alist-get 'cljstyle     apheleia-formatters) '("cljstyle" "pipe"))
   (setf (alist-get 'clojure-mode apheleia-mode-alist) 'cljstyle)
   )
+
+
+(use-package multiple-cursors
+  ;; ref: https://github.com/magnars/multiple-cursors.el
+  :ensure t
+  :bind
+  (("C-M-<return>" . mc/mark-more-like-this-extended)))
+
+(use-package move-text
+  ;; ref: https://github.com/emacsfodder/move-text
+  :ensure t
+  :bind
+  (("M-<up>" . move-text-up)
+   ("M-<down>" . move-text-down)))

@@ -1,4 +1,4 @@
-;; file: 2003_lang-racket.el
+;; file: lang-racket.el
 
 
 ;; ref: https://racket-mode.com/

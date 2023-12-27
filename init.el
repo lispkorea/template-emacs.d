@@ -28,6 +28,8 @@
   ;; melpa(stable): http://stable.melpa.org/
   ;; 미러 칸트대학: https://www.mirrorservice.org/
   ;; 미러 칭화대학: https://mirrors.tuna.tsinghua.edu.cn/help/elpa/
+  :init
+  (setq package-check-signature nil)
   :config
   (progn ;; `elpa'
     (defconst PACKAGE_ELPA_GNU
@@ -62,13 +64,40 @@
          PACKAGE_MELPA
          )))
 
-(use-package init-loader
-  :ensure t
-  :init
-  (let* ((my-inits-dir (locate-user-emacs-file "inits")))
-    (unless (file-exists-p my-inits-dir)
-      (make-directory my-inits-dir t))
-    (setq init-loader-directory my-inits-dir)
-    ;; (setq init-loader-byte-compile t)
-    (init-loader-load)))
-
+(progn
+  ;; `설정'
+  (thread-last
+    "config.el"
+    (locate-user-emacs-file)
+    (file-truename)
+    (load-file))
+  (defconst CONFIG_DIR "inits/")
+  (defconst CONFIG_LIST
+    '(
+;;; =========== `base-'
+      base-define.el
+      base-setting.el
+;;; =========== `os-'
+      os-windows.el
+      os-macos.el
+      os-linux.el
+;;; =========== `setting-'
+      setting-theme.el
+      setting-ui.el
+      setting-navigation.el
+      setting-editting.el
+      setting-font.el
+;;; =========== `lang-' : language(programming)
+      lang-emacs-lisp.el
+      ;; lang-common-lisp.el
+      ;; lang-clojure.el
+      ;; lang-racket.el
+;;; =========== `file-' : file type
+      file-markdown.el
+      ;;
+      ;; 3001_util-completion.el
+;;; =========== `util-'
+      util-git.el
+      util-command.el
+      ))
+  (config:load-config CONFIG_DIR CONFIG_LIST))

@@ -1,4 +1,4 @@
-;; file: 0010_base-setting.el
+;; file: base-setting.el
 
 (progn ;; `설정::한글'
   ;; ref: https://www.gnu.org/software/emacs/manual/html_node/emacs/Language-Environments.html

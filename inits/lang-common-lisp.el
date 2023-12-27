@@ -1,4 +1,4 @@
-;; file: 2001_common-lisp.el
+;; file: lang-common-lisp.el
 
 (use-package sly
   :requires (subr-x)
