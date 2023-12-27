@@ -64,8 +64,7 @@
          PACKAGE_MELPA
          )))
 
-(progn
-  ;; `설정'
+(progn ;; `설정'
   (thread-last
     "config.el"
     (locate-user-emacs-file)
@@ -87,6 +86,7 @@
       setting-navigation.el
       setting-editting.el
       setting-font.el
+      setting-treemacs.el
 ;;; =========== `lang-' : language(programming)
       lang-emacs-lisp.el
       ;; lang-common-lisp.el
@@ -94,10 +94,9 @@
       ;; lang-racket.el
 ;;; =========== `file-' : file type
       file-markdown.el
-      ;;
-      ;; 3001_util-completion.el
 ;;; =========== `util-'
       util-git.el
       util-command.el
+      ;; util-completion.el
       ))
   (config:load-config CONFIG_DIR CONFIG_LIST))
