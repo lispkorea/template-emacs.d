@@ -71,7 +71,7 @@
     (locate-user-emacs-file)
     (file-truename)
     (load-file))
-  (defconst CONFIG_DIR "inits/")
+  (defconst CONFIG_DIR "config/")
   (defconst CONFIG_LIST
     '(
 ;;; =========== `base-'
