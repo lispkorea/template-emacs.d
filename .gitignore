@@ -1,24 +1,49 @@
+# -*- mode: gitignore; -*-
+## ref: https://github.com/github/gitignore/blob/main/Global/Emacs.gitignore
+
+## 임시파일(Emacs)
+*~
+
+## 임시파일(MacOs)
+.DS_Store
+
+## 락(lock)파일
+#*
+
+## 패키지 매니져
 /elpa/
-/eln-cache/
-/auto-save-list/
 
-/\.cache/
+## 이맥스(ido)
+/ido.last
 
+## 이맥스(eshell)
+/eshell/
+
+## 이맥스(elisp-autofmt)
+/elisp-autofmt-cache/
+
+## 이맥스(projectile)
 .projectile
 /projectile-bookmarks.eld
 /projectile.cache
 /projects
 /custom.el
 
-*~
-\#*
+# 이맥스(flycheck)
+flycheck_*.el
 
-.DS_Store
+# 이맥스(flymake-mode)
+*_flymake.*
+
+## lang(racket)
 /racket-mode/
 
-/eshell/
-/elisp-autofmt-cache/
+## 기타
+/eln-cache/
+/auto-save-list/
+/\.cache/
 /amx-items
-/ido.last
 /.mc-lists.el
 /transient/
+.dir-locals.el
+.elc
