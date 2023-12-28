@@ -1,12 +1,10 @@
-;; file: lang-common-lisp.el
+;; file: lang-common-lisp-sly.el
 
 (use-package sly
-  :requires (subr-x)
   :ensure t
-  :config
-  (setq inferior-lisp-program
-        (string-trim
-         (shell-command-to-string "which sbcl"))))
+  :init
+  (setq inferior-lisp-program (executable-find "sbcl"))
+  (define-key sly-mode-map (kbd "C-c M-n") 'sly-mrepl-sync))
 
 (progn
   ;; `overlay'
@@ -24,7 +22,6 @@
           (eros--make-result-overlay value
             :where pos-end
             :duration eros-eval-result-duration)
-          ;; (message value)
           (message value)))))
   ;; (keymap-set sly-mode-map "C-M-x" 'sly-eval-defun)
   (keymap-set sly-mode-map "C-M-x" 'custom:sly-eval-last-expression-eros))

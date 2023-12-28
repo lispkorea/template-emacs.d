@@ -1,4 +1,4 @@
-;; file: lang-clojure.el
+;; file: lang-clojure-cider.el
 
 
 ;; ** custom

@@ -58,7 +58,7 @@
 
   ;;(setq-default package-user-dir DIR_ROOT_PACKAGE)
   (setq package-archives
-	(list
+        (list
          PACKAGE_ELPA_GNU
          PACKAGE_ELPA_NOGNU
          PACKAGE_MELPA
@@ -90,9 +90,10 @@
       setting-projectile.el
 ;;; =========== `lang-' : language(programming)
       lang-emacs-lisp.el
-      lang-common-lisp.el
-      lang-clojure.el
-      lang-racket.el
+      ;; lang-common-lisp-sly.el
+      lang-common-lisp-slime.el
+      lang-clojure-cider.el
+      lang-racket-racket-mode.el
 ;;; =========== `file-' : file type
       file-markdown.el
       file-json.el

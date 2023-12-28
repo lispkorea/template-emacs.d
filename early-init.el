@@ -43,3 +43,9 @@
 (setq inhibit-compacting-font-caches t)
 (setq inhibit-startup-message t)
 (setq inhibit-startup-echo-area-message t)
+
+;; (setq package-enable-at-startup nil)
+;; (setq package--init-file-ensured t)
+;; (setq use-package-always-defer t)
+(setq package-native-compile t)
+

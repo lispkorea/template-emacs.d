@@ -1,13 +1,13 @@
-;; file: lang-racket.el
+;; file: lang-racket-racket-mode.el
 
 
 ;; ref: https://racket-mode.com/
 ;; command: https://racket-mode.com/#Commands
 
-;; C-M-i        complete-symbol 
-;; C-c C-k	racket-run-module-at-point
-;; C-c C-c	racket-run-module-at-point
-;; C-M-x	racket-send-definition
+;; C-M-i        complete-symbol
+;; C-c C-k      racket-run-module-at-point
+;; C-c C-c      racket-run-module-at-point
+;; C-M-x        racket-send-definition
 (use-package racket-mode
   :ensure t
   :config
