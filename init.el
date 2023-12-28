@@ -87,15 +87,19 @@
       setting-editting.el
       setting-font.el
       setting-treemacs.el
+      setting-projectile.el
 ;;; =========== `lang-' : language(programming)
       lang-emacs-lisp.el
-      ;; lang-common-lisp.el
-      ;; lang-clojure.el
-      ;; lang-racket.el
+      lang-common-lisp.el
+      lang-clojure.el
+      lang-racket.el
 ;;; =========== `file-' : file type
       file-markdown.el
+      file-json.el
 ;;; =========== `util-'
       util-git.el
+      util-flymake.el
+      util-quickrun.el
       util-command.el
       ;; util-completion.el
       ))

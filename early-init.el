@@ -3,9 +3,19 @@
 ;; ref: https://www.gnu.org/software/emacs/manual/html_node/emacs/Early-Init-File.html
 ;; ref: https://github.com/DiamondBond/emacs/blob/master/early-init.el
 
-(setq gc-cons-threshold 16777216) ; 16mb
+(setq 16MB 16777216) ; 16mb
+(setq gc-cons-threshold most-positive-fixnum)
+(setq gc-cons-percentage 0.6)
+(defvar file-name-handler-alist-original file-name-handler-alist)
+(setq file-name-handler-alist nil)
+(setq site-run-file nil)
 
 
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold 16MB)
+            (setq gc-cons-percentage 0.1)
+            (setq file-name-handler-alist file-name-handler-alist-original)))
 
 ;; Silence compiler warnings
 (setq warning-minimum-level :emergency)

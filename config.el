@@ -13,15 +13,16 @@
   time-load-sec)
 
 (defun getConfigInfos (config-dir config-list)
-  (cl-loop for index from 0
-           for file-path in config-list
+  (cl-loop for file-path in config-list
+           for index from 0
+           for file-fullpath = (->> file-path
+                                    (symbol-name)
+                                    (concat config-dir)
+                                    (locate-user-emacs-file)
+                                    (file-truename))
+           when (file-exists-p file-fullpath)
            collect
-           (let* ((file-fullpath (->> file-path
-                                      (symbol-name)
-                                      (concat config-dir)
-                                      (locate-user-emacs-file)
-                                      (file-truename)))
-                  (time-load-sec (-> file-fullpath
+           (let* ((time-load-sec (-> file-fullpath
                                      (load-file)
                                      (benchmark-run)
                                      (car))))
@@ -29,6 +30,15 @@
                               :file-path file-path
                               :file-fullpath file-fullpath
                               :time-load-sec time-load-sec))))
+
+(defun getIndicate (val-cur val-max)
+  (let* ((perc-1 (thread-first
+                   val-cur
+                   (/ val-max)
+                   (* 10)
+                   (round)))
+         (perc-2 (- 10 perc-1)))
+    (concat (make-string perc-1 ?■) (make-string perc-2 ?.))))
 
 (defun config:load-config (config-dir config-list)
   (let* ((infos (getConfigInfos config-dir config-list))
@@ -41,9 +51,10 @@
         (erase-buffer)
         (insert (format "\n\n총 %d파일, %0.4f초\n\n" (length infos) acc-sec))
         (dolist (info infos)
-          (insert (format "%03d | %0.3f초 | %s\n"
+          (insert (format "%03d | %s | %0.2f초 | %s\n"
                           (ConfigInfo-index info)
+                          (getIndicate (ConfigInfo-time-load-sec info) acc-sec)
                           (ConfigInfo-time-load-sec info)
-                          (ConfigInfo-file-fullpath info))))
+                          (ConfigInfo-file-path info))))
         (switch-to-buffer buff)
         (view-mode +1)))))

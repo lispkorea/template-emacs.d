@@ -25,6 +25,12 @@
   (add-hook 'eval-expression-minibuffer-setup-hook
             #'eldoc-mode))
 
+(use-package eldoc
+  :ensure nil
+  :diminish eldoc-mode
+  :config
+  (setq eldoc-idle-delay 0.4))
+
 ;; (use-package eldoc-box
 ;;   :ensure t
 ;;   :config

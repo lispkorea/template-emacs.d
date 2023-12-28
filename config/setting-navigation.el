@@ -11,15 +11,6 @@
   (setq mouse-wheel-follow-mouse 't)
   (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))))
 
-(use-package projectile
-  ;; ref: https://github.com/bbatsov/projectile
-  ;; ref: https://docs.projectile.mx/
-  :ensure t
-  :config
-  (setq projectile-enable-caching t)
-  (setq projectile-indexing-method 'alien)
-  (projectile-mode +1))
-
 (progn ;; `ibuffer'
   (use-package ibuffer
     ;; Emacs(22)

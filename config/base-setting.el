@@ -20,3 +20,13 @@
   (setq-default indent-tabs-mode nil)
   (setq tab-width 4))
 
+(use-package delsel
+  ;; ref: https://github.com/emacs-mirror/emacs/blob/master/lisp/delsel.el
+  :ensure nil
+  :config
+  (delete-selection-mode +1))
+
+(use-package whitespace
+  :ensure nil
+  :hook (before-save . whitespace-cleanup))
+
