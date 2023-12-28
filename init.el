@@ -66,7 +66,7 @@
 
 (progn ;; `설정'
   (thread-last
-    "config.el"
+    "config-loader.el"
     (locate-user-emacs-file)
     (file-truename)
     (load-file))
@@ -104,4 +104,4 @@
       util-command.el
       ;; util-completion.el
       ))
-  (config:load-config CONFIG_DIR CONFIG_LIST))
+  (config-loader:load-config CONFIG_DIR CONFIG_LIST))

@@ -1,4 +1,4 @@
-;; file: config.el
+;; file: config-loader.el
 
 (require 'cl-lib)
 (require 'cl-seq)
@@ -40,7 +40,7 @@
          (perc-2 (- 10 perc-1)))
     (concat (make-string perc-1 ?■) (make-string perc-2 ?.))))
 
-(defun config:load-config (config-dir config-list)
+(defun config-loader:load-config (config-dir config-list)
   (let* ((infos (getConfigInfos config-dir config-list))
          (acc-sec (->> infos
                        (mapcar #'ConfigInfo-time-load-sec)

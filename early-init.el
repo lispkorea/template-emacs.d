@@ -4,8 +4,11 @@
 ;; ref: https://github.com/DiamondBond/emacs/blob/master/early-init.el
 
 (setq 16MB 16777216) ; 16mb
+
+;; 기본 #define GC_DEFAULT_THRESHOLD (100000 * word_size)
+;; most-positive-fixnum
 (setq gc-cons-threshold most-positive-fixnum)
-(setq gc-cons-percentage 0.6)
+(setq gc-cons-percentage 0.6)           ; 기본 0.1
 (defvar file-name-handler-alist-original file-name-handler-alist)
 (setq file-name-handler-alist nil)
 (setq site-run-file nil)
