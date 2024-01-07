@@ -90,8 +90,8 @@
       setting-projectile.el
 ;;; =========== `lang-' : language(programming)
       lang-emacs-lisp.el
-      ;; lang-common-lisp-sly.el
-      lang-common-lisp-slime.el
+      lang-common-lisp-sly.el
+      ;; lang-common-lisp-slime.el
       lang-clojure-cider.el
       lang-racket-racket-mode.el
 ;;; =========== `file-' : file type
@@ -102,6 +102,9 @@
       util-flymake.el
       util-quickrun.el
       util-command.el
+      util-company.el
       ;; util-completion.el
+;;; =========== `ai-'
+      ai-tabnine.el
       ))
   (config-loader:load-config CONFIG_DIR CONFIG_LIST))
