@@ -46,7 +46,7 @@ auto-save-list
 /server/
 
 ## network security
-/network-security.data
+./network-security.data
 
 
 # 라이브러리 ============================================================
@@ -95,6 +95,9 @@ tramp
 
 ## 라이브러리 - magit
 /transient/
+
+## 라이브러리 - cider
+/cider-history
 
 # 기타 ============================================================
 
