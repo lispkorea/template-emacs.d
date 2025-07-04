@@ -130,12 +130,28 @@
   ;; `탭'
   ;; ref: https://github.com/ema2159/centaur-tabs
   :ensure t
+  ;; :after (all-the-icons)
+  :after (nerd-icons)
   :bind
   ("C-<tab>" . centaur-tabs-forward)
+
   :init
+  (setq centaur-tabs-style "bar")
   (setq centaur-tabs-set-icons t)
-  (setq centaur-tabs-style "alternate")
   (setq centaur-tabs-cycle-scope 'tabs)
   (setq centaur-tabs-gray-out-icons 'buffer)
   (setq centaur-tabs-set-bar 'under)
-  (centaur-tabs-mode +1))
+  (setq centaur-tabs-modified-marker "*")
+  (setq centaur-tabs-set-modified-marker t)
+  ;; (setq centaur-tabs-icon-type 'all-the-icons)
+  (setq centaur-tabs-icon-type 'nerd-icons)
+  (setq centaur-tabs-plain-icons t)
+
+  :config
+  (centaur-tabs-mode +1)
+
+  :hook
+  (emacs-startup . centaur-tabs-mode)
+  )
+
+
