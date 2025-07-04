@@ -33,10 +33,17 @@
   (ido-vertical-mode +1)
   (setq ido-vertical-define-keys 'C-n-and-C-p-only))
 
+
+(use-package ido-completing-read+
+  :ensure t
+  :config
+  (ido-ubiquitous-mode 1))
+
 (use-package amx
   ;; smex => amx
   ;; ref: https://github.com/DarwinAwardWinner/amx
   :ensure t
+  :after ido-completing-read+
   :config
   (amx-mode))
 
