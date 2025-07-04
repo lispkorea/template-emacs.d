@@ -37,29 +37,37 @@
 ;; ♪ ♫ ♥ ​♣​ ♦​ ♠​ ☺​ ☻ ​❤​ ☕​ 💩 ​🤖​ 🔒
 ;;      
 
+
+
+
 (when (display-graphic-p)
-  ;; `비쥬얼::폰트_all-the-icons'
-  ;; ref: https://github.com/domtronn/all-the-icons.el
-  (use-package all-the-icons
+  (defun font-installed-p (font-name)
+    "Return t if FONT-NAME is available on the system."
+    (if (null (find-font (font-spec :name font-name)))
+        nil
+      t))
+  ;; `비쥬얼::폰트_nerd-icons'
+  (use-package nerd-icons
+    ;; ref: https://github.com/rainstormstudio/nerd-icons.el
     :ensure t
     :if
     (or (display-graphic-p)
         (daemonp))
     :config
-    ;; ref: https://github.com/domtronn/all-the-icons.el/issues/120#issuecomment-565438080
-    (when (and (window-system)
-               (not (member "all-the-icons" (font-family-list))))
-      (all-the-icons-install-fonts t)))
-  (use-package all-the-icons-dired
-    ;; https://github.com/jtbm37/all-the-icons-dired
+    (when (and (display-graphic-p)
+               (not (font-installed-p nerd-icons-font-family)))
+      (nerd-icons-install-fonts t)
+      (message "⚠ Nerd Font not found. On Windows, please open the font file and click 'Install' to install it system-wide.")))
+  (use-package nerd-icons-dired
+    ;; https://github.com/rainstormstudio/nerd-icons-dired
     :ensure t
-    :after (all-the-icons dired)
-    :hook (dired-mode . all-the-icons-dired-mode))
-  (use-package all-the-icons-ibuffer
-    ;; https://github.com/seagle0128/all-the-icons-ibuffer
+    :after (nerd-icons dired)
+    :hook (dired-mode . nerd-icons-dired-mode))
+  (use-package nerd-icons-ibuffer
+    ;; https://github.com/seagle0128/nerd-icons-ibuffer
     :ensure t
-    :after (all-the-icons ibuffer)
-    :hook (ibuffer-mode . all-the-icons-ibuffer-mode)))
+    :after (nerd-icons ibuffer)
+    :hook (ibuffer-mode . nerd-icons-ibuffer-mode)))
 
 (when (display-graphic-p)
   (defun available-font? (font)
@@ -83,4 +91,4 @@
       (set-fontset-font t 'hangul (font-spec :name font-name))
       (set-face-attribute 'default nil :family font-name)
       (setq face-font-rescale-alist
-            '((font-name . 1))))))
+            `((,font-name . 1))))))
