@@ -42,17 +42,13 @@
   ;; ref: https://github.com/domtronn/all-the-icons.el
   (use-package all-the-icons
     :ensure t
-    :if (or (display-graphic-p)
-            (daemonp))
+    :if
+    (or (display-graphic-p)
+        (daemonp))
     :config
     ;; ref: https://github.com/domtronn/all-the-icons.el/issues/120#issuecomment-565438080
-    (defun aorst/font-installed-p (font-name)
-      "Check if font with FONT-NAME is available."
-      (if (find-font (font-spec :name font-name))
-          t
-        nil))
-    (when (and (not (aorst/font-installed-p "all-the-icons"))
-               (window-system))
+    (when (and (window-system)
+               (not (member "all-the-icons" (font-family-list))))
       (all-the-icons-install-fonts t)))
   (use-package all-the-icons-dired
     ;; https://github.com/jtbm37/all-the-icons-dired
@@ -64,7 +60,6 @@
     :ensure t
     :after (all-the-icons ibuffer)
     :hook (ibuffer-mode . all-the-icons-ibuffer-mode)))
-
 
 (when (display-graphic-p)
   (defun available-font? (font)

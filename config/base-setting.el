@@ -26,7 +26,6 @@
   :config
   (delete-selection-mode +1))
 
-(use-package whitespace
-  :ensure nil
-  :hook (before-save . whitespace-cleanup))
-
+(progn
+  (require 'whitespace)
+  (add-hook 'before-save-hook 'whitespace-cleanup))

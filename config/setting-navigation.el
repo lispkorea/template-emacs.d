@@ -12,12 +12,11 @@
   (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))))
 
 (progn ;; `ibuffer'
-  (use-package ibuffer
-    ;; Emacs(22)
-    ;; ref: https://github.com/emacs-mirror/emacs/blob/master/lisp/ibuffer.el
-    :config
-    (defalias 'list-buffers 'ibuffer)
-    (setq ibuffer-expert t))
+  ;; Emacs(22)
+  ;; ref: https://github.com/emacs-mirror/emacs/blob/master/lisp/ibuffer.el
+  (require 'ibuffer)
+  (defalias 'list-buffers 'ibuffer)
+  (setq ibuffer-expert t)
   ;; (use-package nerd-icons-ibuffer
   ;;   ;; ref: https://github.com/seagle0128/nerd-icons-ibuffer
   ;;   :requires ibuffer

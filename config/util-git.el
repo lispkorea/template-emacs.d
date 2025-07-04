@@ -21,8 +21,10 @@
 ;;    | q | Quit git-timemachine                               |
 ;;    | b | Run magit-blame on the currently visited revision. |
 
+(use-package transient)
 (use-package magit
   :ensure t
+  :after transient
   :bind
   ("C-c g b" . magit-blame-addition)
   ("C-c g m" . magit))

@@ -32,9 +32,9 @@
   ;; enable globally
   (pulsar-global-mode 1))
 
-(use-package whitespace
+(progn
   ;; ref: https://www.emacswiki.org/emacs/WhiteSpace
-  :config
+  (require 'whitespace)
   (setq whitespace-style
         '(face
           trailing
@@ -68,12 +68,12 @@
          '(100 . 100)))))
   (global-set-key (kbd "C-c t") 'toggle-transparency))
 
-(use-package paren
+(progn
   ;; `비쥬얼::하이라이트_괄호범위'
   ;; parenthesis : 괄호만
   ;; expression  : 표현식전체
   ;; mixed       : 한 화면에 보이면 괄호, 아니면 표현식전체
-  :config
+  (require 'paren)
   (setq show-paren-delay 0)
   (setq show-paren-style 'expression)
   ;; (setq show-paren-style 'parenthesis)
