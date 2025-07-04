@@ -112,3 +112,5 @@ tramp
 .cask/
 dist/
 
+## ielm
+/ielm-history.eld
