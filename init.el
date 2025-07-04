@@ -13,6 +13,9 @@
   ;; ref: https://www.gnu.org/software/emacs/manual/html_node/emacs/Auto-Save-Control.html
   (setq auto-save-default nil))
 
+(setq debug-on-error t)
+
+
 (progn              ;; `설정'
   (require 'subr-x) ; for thread-last
   (thread-last
@@ -38,7 +41,7 @@
       setting-ui.el
       setting-navigation.el
       setting-editting.el
-      ;; setting-font.el
+      setting-font.el
       setting-treemacs.el
       setting-projectile.el
 ;;; =========== `lang-' : language(programming)
