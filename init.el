@@ -46,8 +46,8 @@
       setting-projectile.el
 ;;; =========== `lang-' : language(programming)
       lang-emacs-lisp.el
-      lang-common-lisp-sly.el
-      ;; lang-common-lisp-slime.el
+      ;; lang-common-lisp-sly.el
+      lang-common-lisp-slime.el
       lang-clojure-cider.el
       lang-racket-racket-mode.el
 ;;; =========== `file-' : file type
