@@ -18,7 +18,6 @@
 
 (use-package treemacs-magit
   :ensure t
-  :requires (magit)
   :after (treemacs magit))
 
 ;; (use-package treemacs-icons-dired

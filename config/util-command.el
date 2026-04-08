@@ -2,7 +2,7 @@
 
 (use-package urgrep
   ;; ref: https://github.com/jimporter/urgrep
-  :ensure t)
+  :ensure (:host github :repo "jimporter/urgrep"))
 
 (use-package ag
   :ensure t

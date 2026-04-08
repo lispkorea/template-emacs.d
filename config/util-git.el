@@ -21,7 +21,9 @@
 ;;    | q | Quit git-timemachine                               |
 ;;    | b | Run magit-blame on the currently visited revision. |
 
-(use-package transient)
+(use-package transient
+  :ensure t)
+
 (use-package magit
   :ensure t
   :after transient
