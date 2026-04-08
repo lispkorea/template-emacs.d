@@ -50,7 +50,7 @@
       lang-common-lisp-slime.el
       lang-clojure-cider.el
       lang-racket-racket-mode.el
-      lang-scheme-geiser-chez.el
+      lang-scheme-geiser.el
 ;;; =========== `file-' : file type
       file-markdown.el
       file-json.el
